@@ -1,0 +1,26 @@
+<!--  ブログサイトのベースとなるテンプレートhtmlファイル -->
+{% load static %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!--  このlinkはプロジェクトにファイルを追加しているわけではない。インターネット上にあるファイルを指している -->
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <!-- ブラウザは上から書いた順番でファイルを読み込むので、記述する箇所はよく確かめる -->
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                <!--  post_list.htmlから block contentをこの中に埋め込む -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
